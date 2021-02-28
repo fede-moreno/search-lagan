@@ -1,0 +1,44 @@
+.Settings {
+
+  &-header {
+    text-align: center;
+
+    button.backButton {
+      font-size: 24px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      float: left;
+    }
+
+    h1 {
+      text-align: center;
+    }
+  }
+
+  &-container {
+    margin: 0 auto;
+    width: 350px;
+
+    & > div.row {
+      margin-bottom: 16px;
+
+      label {
+        display: inline-block;
+        width: 150px;
+      }
+
+      input {
+        display: inline-block;
+        float: right;
+        width: 150px;
+      }
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      font-size: 1em;
+    }
+  }
+}

@@ -1,1 +1,19 @@
-<p>settings works!</p>
+<div class="Settings">
+<div class="Settings-header">
+  <button class="backButton" (click)="goHome()"><i class="fas fa-arrow-left"></i></button>
+  <h1>Settings</h1>
+</div>
+  <form class="Settings-container" [formGroup]="settingsFormGroup" (ngSubmit)="saveSettings()">
+    <div class="row">
+      <label>Background Color:</label>
+      <input [ngStyle]="{'background': settingsFormGroup.value.backgroundColor}" type="text" formControlName="backgroundColor">
+    </div>
+    <div class="row">
+      <label>Minimum Stars:</label> <input type="number" formControlName="minimumStars" min="0" max="100">
+    </div>
+    <div class="row">
+      <label>Max Results:</label> <input type="number" formControlName="maxResults" min="1" max="100">
+    </div>
+    <button type="submit" [disabled]="!settingsFormGroup.valid">Save and get back</button>
+  </form>
+</div>
