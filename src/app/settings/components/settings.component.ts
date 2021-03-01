@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppRoutes } from '../../shared/enums/app-routes.enum';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SettingsStateService } from '../services/settings-state.service';
+import { initialSettings } from '../constants/initial-settings.const';
+import { hexColorValidator } from '../../shared/functions/hex-color.validator';
 
 @Component({
   selector: 'app-settings',
@@ -14,11 +16,10 @@ export class SettingsComponent implements OnInit {
 
   constructor(private router: Router,
               private settingsStateService: SettingsStateService) {
-    // TODO add form validations
     this.settingsFormGroup = new FormGroup({
-      backgroundColor: new FormControl(),
-      minimumStars: new FormControl(),
-      maxResults: new FormControl()
+      backgroundColor: new FormControl(null, [Validators.required, hexColorValidator()]),
+      minimumStars: new FormControl(null, [Validators.required, Validators.min(1), Validators.max(10000)]),
+      maxResults: new FormControl(null, [Validators.required, Validators.min(1), Validators.max(100)])
     });
   }
 
@@ -39,5 +40,12 @@ export class SettingsComponent implements OnInit {
   saveSettings(): void {
     this.settingsStateService.update(this.settingsFormGroup.value);
     this.goHome();
+  }
+
+  /**
+   * Resets the form to its initial settings.
+   */
+  resetSettings(): void {
+    this.settingsFormGroup.patchValue(initialSettings);
   }
 }
