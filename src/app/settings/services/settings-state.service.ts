@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { Settings } from '../models/settings.model';
-import { initialSettings } from '../constants/initial-settings.const';
-import { CookieService } from 'ngx-cookie-service';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
+import {Settings} from '../models/settings.model';
+import {initialSettings} from '../constants/initial-settings.const';
+import {CookieService} from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,12 +10,16 @@ import { CookieService } from 'ngx-cookie-service';
 export class SettingsStateService {
   private readonly _state = new BehaviorSubject<Settings>(initialSettings);
   readonly states$ = this._state.asObservable();
-  readonly cookieName = 'settings';
+  readonly cookieName = 'settings'; // Could be stored in config.json
 
   constructor(private cookieService: CookieService) {
     this.loadFromCookie();
   }
 
+  /**
+   * Retrieves and returns the current state of the stored settings.
+   * @return {Settings} - current settings state.
+   */
   get state(): Settings {
     return this._state.getValue();
   }
@@ -31,6 +35,12 @@ export class SettingsStateService {
     }
   }
 
+  /**
+  * Updates the observable with the new changes and lets the observers know.
+  * The changes are also stored in the cookie.
+   * @param {Settings} state - new settings to be saved into the store and cookie.
+   *
+  */
   update(state: Settings) {
     this._state.next(state);
     this.cookieService.set(this.cookieName, JSON.stringify(state));

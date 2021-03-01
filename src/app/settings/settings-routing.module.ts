@@ -1,7 +1,7 @@
 import { RouterModule, Routes } from '@angular/router';
-import { SettingsComponent } from './components/settings/settings.component';
+import { SettingsComponent } from './components/settings.component';
 import { NgModule } from '@angular/core';
-import { AppRoutes } from '../enums/app-routes.enum';
+import { AppRoutes } from '../shared/enums/app-routes.enum';
 import { DetailsComponent } from '../details/details.component';
 
 export const routes: Routes = [

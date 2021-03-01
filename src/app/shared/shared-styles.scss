@@ -1,0 +1,13 @@
+@mixin iconButton {
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  &:hover {
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

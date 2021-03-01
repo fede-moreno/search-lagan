@@ -1,2 +1,27 @@
-<p>home works!</p>
-<button (click)="goToSettings()">settings</button>
+<div class="Home" [ngStyle]="{'background-color': backgroundColor}">
+  <div class="Home-header">
+    <h1>Search Lagan</h1>
+    <button class="settingsButton" (click)="goToSettings()"><i class="fas fa-cog"></i></button>
+  </div>
+  <div class="Home-content">
+    <div class="searchBox">
+      <span class="searchIcon"><i class="fas fa-search"></i></span>
+      <input type="text" [formControl]="searchFormControl" autofocus/>
+      <button *ngIf="repositories.length" class="closeButton" (click)="clearSearch()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="resultsContainer">
+      <div class="resultsContainer-loading" *ngIf="isLoading else content">
+        <p>...</p>
+      </div>
+      <ng-template #content>
+        <div class="resultsContainer-row" *ngFor="let repository of repositories" (click)="goToDetails(repository)">
+          <div class="resultsContainer-row-header">
+            <label>{{ repository.name }}</label>
+            <span>{{ repository.starsCount }} <i class="fas fa-star"></i></span>
+          </div>
+          <p>{{ repository.description ? repository.description : '-'}}</p>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

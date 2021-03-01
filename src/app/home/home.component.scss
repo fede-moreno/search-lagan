@@ -1,0 +1,91 @@
+@import '../shared/shared-styles';
+.Home {
+  height: 100vh;
+
+  &-header {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 0.3rem 0.6rem rgba(112, 112, 112, 0.4);
+
+    h1 {
+      font-size: 2.4rem;
+    }
+
+    .settingsButton {
+      font-size: 2.4rem;
+      @include iconButton();
+    }
+  }
+
+  &-content {
+    padding: 1.5rem;
+
+    .searchBox {
+      background: #fff;
+      padding: 1.5rem ;
+      display: flex;
+      align-items: baseline;
+
+      .searchIcon {
+        font-size: 2.4rem;
+        padding-right: 1rem;
+      }
+
+      input {
+        padding: 0.5rem 1rem;
+        flex: 1
+      }
+
+      .closeButton {
+        padding-left: 1rem;
+        font-size: 2.4rem;
+        @include iconButton();
+      }
+    }
+
+    .resultsContainer {
+      background: #fff;
+
+      &-loading {
+        padding: 0.5rem 1.5rem;
+
+        p {
+          font-weight: 500;
+        }
+      }
+
+      &-row {
+        padding: 0.5rem 1.5rem;
+        cursor: pointer;
+
+        &-header {
+          display: flex;
+          justify-content: space-between;
+          color: #070707;
+
+          label {
+            font-weight: 500;
+            cursor: pointer;
+          }
+        }
+
+        p {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        &:not(:last-child) {
+          border-bottom: 0.1rem #070707 solid;
+        }
+      }
+    }
+
+  }
+}
