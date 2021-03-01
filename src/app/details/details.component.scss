@@ -1,3 +1,5 @@
+@import '../shared/shared-styles';
+
 .Details {
   padding: 2.5rem;
 
@@ -6,10 +8,37 @@
   }
 
   &-content {
+    $_imageSize: 20rem;
+    background-color: $sl-color-dark-grey;
+    color: $sl-color-light-grey;
+    border-radius: 10rem;
+    margin: calc(#{$_imageSize} / 2) auto;
+    text-align: center;
+    position: relative;
+    padding-top: 10.5rem;
+    max-width: 80rem;
+    min-width: 40rem;
+
     img.avatar {
-      width: 20rem;
-      height: 20rem;
-      border-radius: 50%
+      width: $_imageSize;
+      height: $_imageSize;
+      border-radius: 50%;
+      position: absolute;
+      top: calc(-#{$_imageSize} / 2);
+      left: 50%;
+      margin-left: calc(-#{$_imageSize} / 2);
+    }
+    
+    h1, h2 {
+      display: inline;
+    }
+
+    p {
+      padding: 1.5rem 4rem 1rem 4rem;
+    }
+
+    h4 {
+      padding: 1rem 4rem;
     }
   }
 }

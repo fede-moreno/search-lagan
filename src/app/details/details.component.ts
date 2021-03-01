@@ -26,12 +26,10 @@ export class DetailsComponent implements OnInit {
     if (repositoryOwner && repositoryName) {
       this.githubService.getRepository(repositoryOwner, repositoryName).pipe(take(1)).subscribe(
         (response) => {
-          console.log(response);
           this.repository = repositoryTransformer(response);
-          console.log(this.repository);
         },
         ((error) => {
-          console.log(error.error.message);
+          console.log(error.error.message); // TODO display snackbar
           this.goHome();
         }),
         () => this.isLoading = false
