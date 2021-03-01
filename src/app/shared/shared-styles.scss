@@ -1,10 +1,25 @@
-@mixin iconButton {
+$sl-color-dark-grey: rgb(22, 27, 34);
+$sl-color-dark-grey-active: rgba(22, 27, 34, 0.7);
+$sl-color-light-grey: rgb(240, 246, 252);
+$sl-color-light-grey-active: rgba(240, 246, 252, 0.7);
+$sl-content-spacing: 1.5rem;
+$sl-content-spacing-small: 0.5rem;
+
+@mixin iconButton($light-theme: false) {
   border: none;
   background: none;
   cursor: pointer;
 
-  &:hover {
-    color: rgba(0, 0, 0, 0.5);
+  @if $light-theme {
+    color: $sl-color-dark-grey;
+    &:hover {
+      color: $sl-color-dark-grey-active;
+    }
+  } @else {
+    color: $sl-color-light-grey;
+    &:hover {
+      color: $sl-color-light-grey-active;
+    }
   }
 
   &:focus {

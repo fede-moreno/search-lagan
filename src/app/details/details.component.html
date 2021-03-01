@@ -6,9 +6,9 @@
     <div class="Details-content" *ngIf="repository && repository.owner">
       <img [src]="repository.owner.avatarUrl" alt="Avatar" class="avatar">
       <h1> {{ repository.name}} </h1>
-      <h2>by {{ repository.owner.name}} </h2>
-      <p *ngIf="repository.description"> {{ repository.description}}</p>
-      <h4> {{repository.starsCount}} <i class="fas fa-star"></i></h4>
+      <h2>by {{ repository.owner.name }} </h2>
+      <p *ngIf="repository.description"> {{ repository.description }}</p>
+      <h4> {{ repository.starsCount }} <i class="fas fa-star"></i></h4>
     </div>
   </ng-template>
 </div>

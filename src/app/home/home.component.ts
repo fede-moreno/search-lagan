@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppRoutes } from '../shared/enums/app-routes.enum';
 import { SettingsStateService } from '../settings/services/settings-state.service';
@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
       debounceTime(500),
       mergeMap((searchValue) => {
         this.repositories = [];
-        if (this.isSearchEmpty(searchValue)) {
+        if (this.isSearchEmpty) {
           return of(null);
         }
         this.isLoading = true;
@@ -47,6 +47,10 @@ export class HomeComponent implements OnInit {
       });
   }
 
+  get isSearchEmpty(): boolean {
+    return !this.searchFormControl.value.trim().length;
+  }
+
   clearSearch(): void {
     this.repositories = [];
     this.searchFormControl.setValue('', {emitEvent: false});
@@ -59,8 +63,4 @@ export class HomeComponent implements OnInit {
   goToDetails(repository: Repository): void {
     this.router.navigate([`/${AppRoutes.DETAILS}/${repository.owner.name}/${repository.name}`]);
   }
-
-  isSearchEmpty(searchValue: string): boolean {
-    return !searchValue.trim().length;
-}
 }

@@ -3,8 +3,9 @@
   height: 100vh;
 
   &-header {
-    background-color: rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
+    background-color: $sl-color-dark-grey;
+    color: $sl-color-light-grey;
+    padding: $sl-content-spacing;
     display: flex;
     justify-content: space-between;
     box-shadow: 0 0.3rem 0.6rem rgba(112, 112, 112, 0.4);
@@ -20,28 +21,30 @@
   }
 
   &-content {
-    padding: 1.5rem;
+    padding: $sl-content-spacing;
 
     .searchBox {
       background: #fff;
-      padding: 1.5rem ;
+      padding: $sl-content-spacing;
       display: flex;
-      align-items: baseline;
+      align-items: center;
 
       .searchIcon {
         font-size: 2.4rem;
-        padding-right: 1rem;
+        padding-right: ($sl-content-spacing-small * 2);
       }
 
       input {
-        padding: 0.5rem 1rem;
+        padding: $sl-content-spacing-small ($sl-content-spacing-small * 2);
+        background-color: $sl-color-light-grey;
+        border: 0.1rem solid $sl-color-dark-grey;
         flex: 1
       }
 
       .closeButton {
-        padding-left: 1rem;
+        padding-left: ($sl-content-spacing-small * 2);
         font-size: 2.4rem;
-        @include iconButton();
+        @include iconButton(true);
       }
     }
 
@@ -49,7 +52,7 @@
       background: #fff;
 
       &-loading {
-        padding: 0.5rem 1.5rem;
+        padding: $sl-content-spacing-small $sl-content-spacing;
 
         p {
           font-weight: 500;
@@ -57,7 +60,7 @@
       }
 
       &-row {
-        padding: 0.5rem 1.5rem;
+        padding: $sl-content-spacing-small $sl-content-spacing;
         cursor: pointer;
 
         &-header {
@@ -78,7 +81,7 @@
         }
 
         &:hover {
-          background-color: rgba(0, 0, 0, 0.05);
+          background-color: $sl-color-light-grey-active;
         }
 
         &:not(:last-child) {

@@ -1,14 +1,13 @@
 import { RepositoriesListApiResponse, Repository } from '../models/repository.model';
 
-export function repositoriesTransformer(response: RepositoriesListApiResponse): Repository[] | null {
+export function repositoriesTransformer(response: RepositoriesListApiResponse): Repository[] {
   const transformedResults: any[] = [];
   if (response && response.items && response.items.length) {
     response.items.forEach((r: any) => {
         transformedResults.push(repositoryTransformer(r));
     });
-    return transformedResults;
   }
-  return null;
+  return transformedResults;
 }
 
 export function repositoryTransformer(response: any): Repository {

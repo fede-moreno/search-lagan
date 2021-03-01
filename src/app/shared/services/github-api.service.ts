@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { repositoriesTransformer } from '../functions/repository.transfomer';
-import { Repository } from '../models/repository.model';
+import { RepositoriesListApiResponse, Repository } from '../models/repository.model';
 
 @Injectable()
 export class GithubApiService {
@@ -13,11 +13,10 @@ export class GithubApiService {
   constructor(private httpClient: HttpClient) {}
 
   // https://docs.github.com/en/github/searching-for-information-on-github/searching-for-repositories
-  getAllRepositories(search: string, minimumStars: number): Observable<Repository[] | null> {
-    // TODO create typed model for response
-    return this.httpClient.get(`${this.apiGithubUrl}/search/repositories?q=${search}+in:name+stars:>=${minimumStars}`,
+  getAllRepositories(search: string, minimumStars: number): Observable<Repository[]> {
+    return this.httpClient.get<RepositoriesListApiResponse>(`${this.apiGithubUrl}/search/repositories?q=${search}+in:name+stars:>=${minimumStars}`,
       {headers: this.githubHeaders})
-      .pipe(map((response: any) => repositoriesTransformer(response)));
+      .pipe(map((response: RepositoriesListApiResponse) => repositoriesTransformer(response)));
   }
 
   getRepository(repositoryOwner: string, repositoryName: string): Observable<Repository> {

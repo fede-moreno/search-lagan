@@ -16,10 +16,10 @@
       <ng-template #content>
         <div class="resultsContainer-row" *ngFor="let repository of repositories" (click)="goToDetails(repository)">
           <div class="resultsContainer-row-header">
-            <label>{{ repository.name }}</label>
+            <label>{{ repository.owner.name + '/' + repository.name }}</label>
             <span>{{ repository.starsCount }} <i class="fas fa-star"></i></span>
           </div>
-          <p>{{ repository.description ? repository.description : '-'}}</p>
+          <p *ngIf="repository.description">{{ repository.description }}</p>
         </div>
       </ng-template>
     </div>
