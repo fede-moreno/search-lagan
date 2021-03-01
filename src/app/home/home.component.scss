@@ -23,6 +23,7 @@
 
   &-content {
     padding: $sl-content-spacing;
+    min-width: 40rem;
 
     .searchBox {
       background: #fff;

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SettingsComponent } from './components/settings.component';
 import { SettingsRoutingModule } from './settings-routing.module';
-import {ReactiveFormsModule} from "@angular/forms";
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [SettingsComponent],
@@ -12,4 +12,5 @@ import {ReactiveFormsModule} from "@angular/forms";
     ReactiveFormsModule
   ]
 })
-export class SettingsModule { }
+export class SettingsModule {
+}
