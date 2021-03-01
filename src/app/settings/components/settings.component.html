@@ -6,15 +6,15 @@
   <form class="Settings-container" [formGroup]="settingsFormGroup" (ngSubmit)="saveSettings()">
 
     <div class="row">
-      <label>Background Color:</label>
+      <label><i class="fas fa-fill-drip"></i> Background Color:</label>
       <input [ngStyle]="{ 'background': settingsFormGroup.value.backgroundColor }" type="text"
              formControlName="backgroundColor">
     </div>
     <div class="row">
-      <label>Minimum Stars:</label> <input type="number" formControlName="minimumStars" min="0" max="10000" step="10">
+      <label><i class="fas fa-star"></i> Minimum Stars:</label> <input type="number" formControlName="minimumStars" min="0" max="10000" step="10">
     </div>
     <div class="row">
-      <label>Max Results:</label> <input type="number" formControlName="maxResults" min="1" max="100">
+      <label> <i class="fas fa-list-ol"></i> Max Results:</label> <input type="number" formControlName="maxResults" min="1" max="100">
     </div>
     <p class="errors" *ngIf="settingsFormGroup.invalid">
       <!--   TODO improve error messages -->
