@@ -1,5 +1,8 @@
 import { Repository } from './repository.model';
 
+/**
+ * Repository model mock for testing purposes
+ */
 export const RepositoryMock: Repository = {
   name: 'Hello-World',
   owner: {

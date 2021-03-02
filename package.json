@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "cypress-run": "ng run search-lagan:cypress-run",
-    "compodoc": "npx compodoc -p tsconfig.app.json src"
+    "compodoc": "npx compodoc -p tsconfig.json src"
   },
   "private": true,
   "dependencies": {

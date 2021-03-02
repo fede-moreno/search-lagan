@@ -47,19 +47,33 @@ export class HomeComponent implements OnInit {
       });
   }
 
+  /**
+   * Check if the search is an empty string
+   *  @returns boolean
+   */
   get isSearchEmpty(): boolean {
     return !this.searchFormControl.value.trim().length;
   }
 
+  /**
+   * Clears the results(repositories) and theinput search box in the template while resetting the formControl
+   * without emitting the event, so it doesn't trigger the valueChanges subscription.
+   */
   clearSearch(): void {
     this.repositories = [];
     this.searchFormControl.setValue('', {emitEvent: false});
   }
 
+  /**
+   * Navigates to Settings
+   */
   goToSettings(): void {
     this.router.navigate([`/${AppRoutes.SETTINGS}`]);
   }
-
+  /**
+   * Navigates to the details page for the repository
+   * @param repository The clicked repository to open its details
+   */
   goToDetails(repository: Repository): void {
     this.router.navigate([`/${AppRoutes.DETAILS}/${repository.owner.name}/${repository.name}`]);
   }
