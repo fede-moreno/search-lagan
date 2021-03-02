@@ -1,3 +1,4 @@
+
 # SearchLagan - Technical challenge
 
 1. A **search page** served at the root with a typeahead functionality that autocompletes Github’s
@@ -8,6 +9,7 @@ npmjs.com website):
     1. Name of the project.
     1. Description of the project.
     1. Number of stars the project has.
+
 1. A **details page** served under `/project/<name_of_the_project>` for a specific repository that
 has been clicked in the search page’s results (1). The details to be displayed under this page
 are:
