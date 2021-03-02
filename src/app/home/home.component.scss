@@ -52,6 +52,8 @@
 
     .resultsContainer {
       background: #fff;
+      max-height: 80vh;
+      overflow-y: auto;
 
       &-loading {
         padding: $sl-content-spacing-small $sl-content-spacing;
