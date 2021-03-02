@@ -1,0 +1,82 @@
+@import '../../shared/shared-styles';
+
+.Settings {
+
+  &-header {
+    background-color: $sl-color-dark-grey;
+    color: $sl-color-light-grey;
+    text-align: center;
+    padding: $sl-content-spacing;
+
+    button.backButton {
+      font-size: 2.4rem;
+      @include iconButton();
+      float: left;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      text-align: center;
+    }
+  }
+
+  &-container {
+    margin: 0 auto;
+    padding-top: $sl-content-spacing;
+    width: 35rem;
+
+    &-row {
+      padding-bottom: $sl-content-spacing;
+
+      label {
+        display: inline-block;
+        width: 20rem;
+      }
+
+      input {
+        display: inline-block;
+        float: right;
+        width: 15rem;
+        padding: 0 $sl-content-spacing-small;
+      }
+    }
+
+    &-errors {
+      color: $sl-color-error;
+      font-size: 1.4rem;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      cursor: pointer;
+      padding: $sl-content-spacing-small $sl-content-spacing;
+      font-weight: 500;
+
+      &.saveButton {
+        background-color: $sl-color-dark-grey;
+        color: $sl-color-light-grey;
+        margin-bottom: $sl-content-spacing-small * 2;
+        border: none;
+
+        &:hover {
+          background-color: $sl-color-dark-grey-active;
+        }
+
+        &[disabled] {
+          background: $sl-color-error;
+        }
+      }
+
+      &.resetButton {
+        color: $sl-color-dark-grey;
+        background-color: $sl-color-light-grey;
+        border: 0.1rem solid $sl-color-dark-grey;
+
+        &:hover {
+          background-color: $sl-color-light-grey-active;
+        }
+      }
+    }
+  }
+}

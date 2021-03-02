@@ -1,0 +1,28 @@
+<div class="Settings">
+  <div class="Settings-header">
+    <button class="backButton" (click)="goHome()"><i class="fas fa-arrow-left"></i></button>
+    <h1>Settings</h1>
+  </div>
+  <form class="Settings-container" [formGroup]="settingsFormGroup" (ngSubmit)="saveSettings()">
+
+    <div class="Settings-container-row">
+      <label><i class="fas fa-fill-drip"></i> Background Color:</label>
+      <input [ngStyle]="{ 'background': settingsFormGroup.value.backgroundColor }" type="text"
+             formControlName="backgroundColor" data-cy="backgroundColorInput">
+    </div>
+    <div class="Settings-container-row">
+      <label><i class="fas fa-star"></i> Minimum Stars:</label>
+      <input type="number" formControlName="minimumStars" min="0" max="10000" step="10" data-cy="minimumStarsInput">
+    </div>
+    <div class="Settings-container-row">
+      <label> <i class="fas fa-list-ol"></i> Max Results:</label>
+      <input type="number" formControlName="maxResults" min="1" max="100" data-cy="maxResultsInput">
+    </div>
+    <p class="Settings-container-errors" *ngIf="settingsFormGroup.invalid">
+      <!--   TODO improve error messages -->
+      Invalid settings.
+    </p>
+    <button type="submit" class="saveButton" [disabled]="!settingsFormGroup.valid">Save and get back</button>
+    <button type="button" class="resetButton" (click)="resetSettings()">Reset settings</button>
+  </form>
+</div>
